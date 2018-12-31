@@ -3,7 +3,7 @@ go-python
 
 [![Build Status](https://drone.io/github.com/sbinet/go-python/status.png)](https://drone.io/github.com/sbinet/go-python/latest)
 
-Naive `go` bindings towards the C-API of CPython-2.
+Naive `go` bindings towards the C-API of CPython-3.
 
 this package provides a ``go`` package named "python" under which most of the ``PyXYZ`` functions and macros of the public C-API of CPython have been exposed.
 
@@ -31,13 +31,13 @@ not standardised across distributions and OSes, so you may have to
 edit the ``cgoflags.go`` file accordingly.
 
 ```sh
- $ go get github.com/sbinet/go-python
+ $ go get github.com/willATgithub/go-python3
 ```
 
 If ``go get`` + ``pkg-config`` failed:
 
 ```sh
- $ cd go-python
+ $ cd go-python3
  $ edit cgoflags.go
  $ make VERBOSE=1
 ```
@@ -59,17 +59,17 @@ Example:
 package main
 
 import "fmt"
-import "github.com/sbinet/go-python"
+import "github.com/willATgithub/go-python3"
 
 func init() {
    err := python.Initialize()
    if err != nil {
           panic(err.Error())
-   } 
+   }
 }
 
 func main() {
- 	 gostr := "foo" 
+ 	 gostr := "foo"
 	 pystr := python.PyString_FromString(gostr)
 	 str := python.PyString_AsString(pystr)
 	 fmt.Println("hello [", str, "]")
@@ -88,9 +88,9 @@ TODO:
 
  - add CPython unit-tests
 
- - do not expose ``C.FILE`` pointer and replace it with ``os.File`` in "go-python" API
+ - do not expose ``C.FILE`` pointer and replace it with ``os.File`` in "go-python3" API
 
- - provide an easy way to extend go-python with ``go`` based extensions
+ - provide an easy way to extend go-python3 with ``go`` based extensions
 
  - think about the need (or not) to translate CPython exceptions into go panic/recover mechanism
 

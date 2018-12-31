@@ -1,6 +1,6 @@
 package python
 
-// #include "go-python.h"
+// #include "go-python3.h"
 import "C"
 
 // PyObject* Py_BuildValue(const char *format, ...)

@@ -11,10 +11,10 @@ import (
 )
 
 func TestGoPython(t *testing.T) {
-	cmd := exec.Command("go-python", "-c", "print 1+1")
+	cmd := exec.Command("go-python3", "-c", "print 1+1")
 	err := cmd.Run()
 	if err != nil {
-		t.Fatalf("go-python failed: %v", err)
+		t.Fatalf("go-python3 failed: %v", err)
 	}
 }
 
@@ -24,7 +24,7 @@ type pkg struct {
 }
 
 func testPkg(t *testing.T, table pkg) {
-	workdir, err := ioutil.TempDir("", "go-python-")
+	workdir, err := ioutil.TempDir("", "go-python3-")
 	if err != nil {
 		t.Fatalf("[%s]: could not create workdir: %v\n", table.path, err)
 	}
@@ -46,7 +46,7 @@ func testPkg(t *testing.T, table pkg) {
 	err = cmd.Run()
 	if err != nil {
 		t.Fatalf(
-			"[%s]: error running go-python test: %v\n%v\n",
+			"[%s]: error running go-python3 test: %v\n%v\n",
 			table.path,
 			err,
 			string(buf.Bytes()),
@@ -77,7 +77,7 @@ func testPkg(t *testing.T, table pkg) {
 			}
 		}
 
-		t.Fatalf("[%s]: error running go-python test:\nwant:\n%s\n\ngot:\n%s\n%s",
+		t.Fatalf("[%s]: error running go-python3 test:\nwant:\n%s\n\ngot:\n%s\n%s",
 			table.path,
 			string(table.want), string(buf.Bytes()),
 			diffTxt,

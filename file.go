@@ -2,7 +2,7 @@ package python
 
 /*
 #include <stdio.h>
-#include "go-python.h"
+#include "go-python3.h"
 
 PyObject*
 _gopy_PyFile_FromFile(int fd, char *name, char *mode) {

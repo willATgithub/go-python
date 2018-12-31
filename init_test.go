@@ -3,7 +3,7 @@ package python_test
 import (
 	"testing"
 
-	python "github.com/sbinet/go-python"
+	python "github.com/willATgithub/go-python3"
 )
 
 func TestProgramName(t *testing.T) {
@@ -16,7 +16,7 @@ func TestProgramName(t *testing.T) {
 }
 
 func TestPythonHome(t *testing.T) {
-	const want = "/usr/lib/go-python"
+	const want = "/usr/lib/go-python3"
 	python.Py_SetPythonHome(want)
 	got := python.Py_GetPythonHome()
 	if got != want {

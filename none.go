@@ -1,6 +1,6 @@
 package python
 
-// #include "go-python.h"
+// #include "go-python3.h"
 import "C"
 
 // The Python None object, denoting lack of value. This object has no methods.
